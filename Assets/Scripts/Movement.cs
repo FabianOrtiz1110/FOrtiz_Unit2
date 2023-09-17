@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     public float HorizontalInput;
     public float speed = 10.0f;
     private float xRange = 20.0f;
+
+    public GameObject bulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,9 @@ public class Movement : MonoBehaviour
                 transform.position = new Vector3 (-xRange, transform.position.y, transform.position.z);
             }
 
-        
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+            }
     }
 }
